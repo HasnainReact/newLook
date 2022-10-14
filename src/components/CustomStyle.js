@@ -220,7 +220,7 @@ const styles=StyleSheet.create({
     borderRadius: 150 / 2, 
     justifyContent: "center", 
     alignItems: "center", 
-    // backgroundColor:'pink',
+    backgroundColor:'#8BD2ED',
     // marginLeft:10,
  },
  formTop:{
@@ -235,7 +235,7 @@ const styles=StyleSheet.create({
  },
  dropButton:{
     width: '90%',
-    height: "30%",
+    height: "25%",
     backgroundColor: '#fff',
     borderRadius: 8,
     borderWidth: 1,
@@ -243,22 +243,32 @@ const styles=StyleSheet.create({
     marginTop:10,
 
  },
- courseButton:{
-   width: '90%',
-    height: "80%",
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#030303',
-    marginTop:10,
- },
+ inquiryCourseButton:{
+  width: '80%',
+  height: "75%",
+  backgroundColor: '#fff',
+  borderRadius: 8,
+  borderWidth: 1,
+  borderColor: '#030303',
+  marginTop:10,
+
+},
+ 
  bachButton:{
-    width: '30%',
+    width: '35%',
     height: "85%",
     backgroundColor: '#fff',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#030303',
+ },
+ genderButton:{
+  width: '30%',
+  height: "80%",
+  backgroundColor: '#fff',
+  borderRadius: 8,
+  borderWidth: 1,
+  borderColor: '#030303'
  },
  gal:{
     height:40,
@@ -279,47 +289,24 @@ const styles=StyleSheet.create({
     // marginRight:5,
   },
   shiftView:{
-    height:Dimensions.get('window').height*0.07,
+    height:Dimensions.get('window').height*0.05,
     width:Dimensions.get('window').width,
     // backgroundColor:'pink',
-    marginTop:5,
+    // marginTop:5,
     justifyContent:'center',
     alignItems:'center',
     flexDirection:'row',
   },
-  shifttxt:{
-    fontSize:17,
-    fontWeight:'bold',
-    color:'#030303'
-  },
-  pesonalView:{
-   // height:Dimensions.get('window').height*.22,
-   //  width:Dimensions.get('window').width*1,
-   //  backgroundColor:'grey',
-  },
-  title: {
-   textAlign: 'left',
-   fontSize: 20,
-   fontWeight: 'bold',
- },
- datePickerStyle: {
-   width: 230,
- },
- text: {
-   textAlign: 'left',
-   width: 230,
-   fontSize: 16,
-   color : "#000"
- },
+ 
  inputView:{
-   backgroundColor:'white',
+  //  backgroundColor:'white',
    justifyContent:'center',
    flexDirection:"row",
    alignItems:"center",
 
 },
 inputTxt:{
-   height:"90%",
+   height:"80%",
    width:"60%",
    backgroundColor:'white',
    borderBottomWidth:1,

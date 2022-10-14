@@ -1,4 +1,4 @@
-import { View, Text,SafeAreaView,TextInput,Image,ScrollView } from 'react-native'
+import { View, Text,SafeAreaView,TextInput,Image,ScrollView ,StatusBar} from 'react-native'
 import SelectDropdown from 'react-native-select-dropdown';
 import {styles} from '../components/CustomStyle';
 import SubHeading from '../components/SubHeading';
@@ -42,6 +42,7 @@ const InquiryForm = () => {
       ];
   return (
     <SafeAreaView style={{backgroundColor:'white'}}>
+      <StatusBar backgroundColor="#8BD2ED" />
         <View style={styles.formHeader}>
         <Image
           source={require('../Images/icrLogo.png')}
@@ -59,7 +60,7 @@ const InquiryForm = () => {
                 </View>
                 <View style={{height:"8%",width:"100%",alignItems:'center',paddingBottom:10}} >
               <SelectDropdown
-                buttonStyle={styles.courseButton}
+                buttonStyle={styles.inquiryCourseButton}
                 defaultButtonText={'Select Course'}
                 data={courses}
                 onSelect={(selectedItem, index) => {

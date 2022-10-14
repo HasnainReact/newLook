@@ -5,34 +5,38 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
-  TextInput
+  TextInput,
+  KeyboardAvoidingView,
+  Dimensions,
+  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import {styles} from '../components/CustomStyle';
 import SelectDropdown from 'react-native-select-dropdown';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import {PERMISSIONS, request } from 'react-native-permissions';
 import SubHeading from '../components/SubHeading';
-import InputText from '../components/InputText';
+import ImagePicker from 'react-native-image-crop-picker';
+import Button from '../components/Button';
+
 
 const AdmissionForm = () => {
+    
 
-  setDate = (event, date) => {};
+  const [imgy,setImgy] = useState('uri=https://www.kindpng.com/imgv/ToowwJJ_avatar-profile-hd-png-download/')
+  const accessGallary=()=>{
+    request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE)
+    ImagePicker.openPicker({
+      compressImageMaxWidth:Dimensions.get('window').height*0.15,
+      compressImageMaxHeight: Dimensions.get('window').width*.26,
+      cropping: true
+    }).then(image => {
+      console.log(image);
+      setImgy(image.path)
+    });
+  }
 
-  // const [date, setDate] = useState('12-10-2022');
-
-  //     const [imgy,setImgy] = useState('')
-  //   const accessGallary=()=>{
-  //     request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE)
-  //     ImagePicker.openPicker({
-  //       compressImageMaxWidth: 300,
-  //       compressImageMaxHeight: 300,
-  //       cropping: true
-  //     }).then(image => {
-  //       console.log(image);
-  //       setImgy(image.path)
-  //     });
-  //   }
-
+      
   const courses = [
     'Web Development',
     'App Development',
@@ -76,21 +80,24 @@ const AdmissionForm = () => {
 
 
   return (
-    <SafeAreaView style={{backgroundColor:"white"}}>
+    <SafeAreaView style={{backgroundColor:'white'}}>
+      <StatusBar backgroundColor="#8BD2ED" />
+        
+      {/* <KeyboardAvoidingView> */}
+      <ScrollView >
       <View style={styles.formHeader}>
         <Image
           source={require('../Images/icrLogo.png')}
           style={styles.icrLogo}></Image>
         <SubHeading heading="Admission Form"/>
       </View>
-      <ScrollView >
         <View style={styles.listView}>
           <View style={styles.formView}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>accessGallary()}>
               <View style={styles.imgForm}>
                 <Image
                   style={styles.imgForm}
-                  source={require('../Images/test.jpeg')}></Image>
+                  source={{uri:imgy}}/>
               </View>
             </TouchableOpacity>
             <View style={styles.formTop}>
@@ -175,7 +182,7 @@ const AdmissionForm = () => {
             <View style={styles.shiftView}>
             <Text style={styles.subTxt}> Gender:</Text>
             <SelectDropdown
-            buttonStyle={styles.bachButton}
+            buttonStyle={styles.genderButton}
             defaultButtonText={'Select'}
 	data={genders}
 	onSelect={(selectedItem, index) => {
@@ -194,7 +201,7 @@ const AdmissionForm = () => {
            /> 
            <Text style={styles.subTxt}> Religion:</Text>
             <SelectDropdown
-            buttonStyle={styles.bachButton}
+            buttonStyle={styles.genderButton}
             defaultButtonText={'Select'}
 	data={religion}
 	onSelect={(selectedItem, index) => {
@@ -219,6 +226,16 @@ const AdmissionForm = () => {
             </TextInput>
             </View>
             <View style={styles.inputView}>
+            <Text style={styles.subTxt}>CNIC # </Text>
+            <TextInput style={styles.inputTxt} placeholder='Enter CNIC No' place keyboardType='number-pad' textAlign='center'>
+            </TextInput>
+            </View>
+            <View style={styles.inputView}>
+            <Text style={styles.subTxt}>CNIC # </Text>
+            <TextInput style={styles.inputTxt} placeholder='Enter CNIC No' place keyboardType='number-pad' textAlign='center'>
+            </TextInput>
+            </View>
+            <View style={styles.inputView}>
             <Text style={styles.subTxt}>Email ID: </Text>
             <TextInput style={styles.inputTxt} placeholder='example@email.com' place keyboardType='email-address' textAlign='center'>
             </TextInput>
@@ -233,8 +250,10 @@ const AdmissionForm = () => {
             <TextInput style={styles.inputTxt} placeholder='Enter Mobile No' place keyboardType='number-pad' textAlign='center'>
             </TextInput>
             </View>
+            <Button heading="Next-->"/>
         </View>
       </ScrollView>
+      {/* </KeyboardAvoidingView> */}
     </SafeAreaView>
   );
 };
