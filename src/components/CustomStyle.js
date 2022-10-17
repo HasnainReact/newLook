@@ -67,11 +67,11 @@ const styles=StyleSheet.create({
       //   backgroundColor:'pink',
     },
     studentContainer: { 
-        height:Dimensions.get('window').height*0.2,
+        height:Dimensions.get('window').height*1,
         width:Dimensions.get('window').width,
         flexDirection: "row",
-        justifyContent:'space-evenly',
-        // backgroundColor:'grey',
+        justifyContent:'center',
+      //   backgroundColor:'grey',
         alignItems:'center',
         borderBottomWidth:1,
         borderBottomColor:'grey',
@@ -106,15 +106,20 @@ const styles=StyleSheet.create({
         
      },
      TxtBox:{
-        height:Dimensions.get('window').height*0.18,
-        width:Dimensions.get('window').width*.7, 
-        // backgroundColor:"pink",
+        height:Dimensions.get('window').height*.18,
+        width:Dimensions.get('window').width, 
+      //   backgroundColor:"pink",
         justifyContent:'center',
+        borderBottomWidth:1,
+        borderBottomColor:'grey',
+      //   alignContent:'center',
+        alignItems:'center'
+        
     },
     nameView:{
         height:Dimensions.get('window').height*0.06,
         width:Dimensions.get('window').width*.7, 
-        // backgroundColor:"pink",
+      //   backgroundColor:"blue",
         alignItems:'center',
         justifyContent:'center',
 
@@ -170,7 +175,7 @@ const styles=StyleSheet.create({
         color:'black',
         marginLeft:5,
         marginTop:5,
-        fontWeight:'bold',
+      //   fontWeight:'bold',
 
       },
       statusTxt:{

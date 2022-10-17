@@ -14,8 +14,76 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+const dummyData = [
+  {
+    id: 'Batch 1',
+    title: 'Hasnain',
+    status:'Enroled',
+    course:'Graphic Designing',
+  },
+  {
+    id: 'Batch 2',
+    title: 'Abdullah',
+    status:'Visited',
+    course:'App Development',
+  },
+  {
+    id: 'Batch 3',
+    title: 'Ali',
+    status:'Enroled',
+    course:'Web Development',
+  },
+  {
+    id: 'Batch 4',
+    title: 'Waseem',
+    status:'Visited',
+    course:'Social Media Marketing',
+  },
+  {
+    id: 'Batch 5',
+    title: 'Hamza',
+    status:'Enroled',
+    course:'WordPress Development',
+  },
+  {
+    id: 'Batch 6',
+    title: 'Fraz',
+    status:'Visited',
+    course:'Sofware Assurance',
+  },
+];
 
 const Home = ({navigation}) => {
+
+  const visitorsList = ({ item }) => {
+    return (
+        <TouchableOpacity onPress={() => navigation.navigate()}>
+            
+            <View style={styles.TxtBox}>
+        <View style={styles.nameView}>
+      <Text style={styles.contactName}>{item.title}</Text>
+      </View>
+      <View style={styles.tagView}>
+      <View style={styles.BachTag}>
+      <Text style={styles.batch}>{item.id}</Text>
+      </View>
+      
+      <View style={styles.statusTag}>
+      <Text style={styles.statusTxt}>{item.status}</Text>
+      </View>
+      </View>
+      <View style={styles.courseTag}>
+      <Text style={styles.courseTxt}>{item.course}</Text>
+      </View>
+     
+                {/* <View style={{ marginVertical: 10, paddingVertical: 10, backgroundColor: "#E8E8E8", borderRadius: 10, paddingHorizontal: 16 }}>
+                    <Text style={{ fontFamily: "Inter-Regular", fontWeight: "600" }}>{item.title}</Text>
+                    <Text style={{ fontFamily: "Inter-Regular" }}>{item.id}</Text>
+                </View> */}
+            </View>
+        </TouchableOpacity>
+    )
+}
 
   return (
     <SafeAreaView style={styles.mainFull}>
@@ -34,35 +102,22 @@ const Home = ({navigation}) => {
         </View>
       </View>
       <View
-       style={styles.listView}
+       style={styles.studentContainer}
        >
-        <TouchableOpacity>
       <View style={styles.studentContainer}>
-        <View style={styles.contactImage}>
+        {/* <View style={styles.contactImage}>
       <Image style={styles.contactImage} source={require('../Images/cat.jpg')}>
 
       </Image>
-      </View>
-      <View style={styles.TxtBox}>
-        <View style={styles.nameView}>
-      <Text style={styles.contactName}>Hafiz Abdull Kareem Khan</Text>
-      </View>
-      <View style={styles.tagView}>
-      <View style={styles.BachTag}>
-      <Text style={styles.batch}>Batch 11</Text>
-      </View>
-      
-      <View style={styles.statusTag}>
-      <Text style={styles.statusTxt}>Enrolled</Text>
+      </View> */}
+      <View>
+        <FlatList
+        data={dummyData}
+        renderItem={visitorsList}
+        />
       </View>
       </View>
-      <View style={styles.courseTag}>
-      <Text style={styles.courseTxt}>Web Development</Text>
-      </View>
-      </View>
-      </View>
-      </TouchableOpacity>
-      <View style={styles.studentContainer}>
+      {/* <View style={styles.studentContainer}>
 
       </View>
       <View style={styles.studentContainer}>
@@ -70,7 +125,7 @@ const Home = ({navigation}) => {
       </View>
       <View style={styles.studentContainer}>
 
-      </View>
+      </View> */}
       <View style={styles.buttonArea}>
         <TouchableOpacity onPress={() => navigation.navigate('Inquiry Form')}>
           <AntDesign name='pluscircle' size={40}color='#070c6b'></AntDesign>
