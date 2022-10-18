@@ -108,18 +108,17 @@ const styles=StyleSheet.create({
      TxtBox:{
         height:Dimensions.get('window').height*.18,
         width:Dimensions.get('window').width, 
-      //   backgroundColor:"pink",
+        // backgroundColor:"pink",
         justifyContent:'center',
         borderBottomWidth:1,
         borderBottomColor:'grey',
-      //   alignContent:'center',
-        alignItems:'center'
+        alignItems:'center',
         
     },
     nameView:{
         height:Dimensions.get('window').height*0.06,
         width:Dimensions.get('window').width*.7, 
-      //   backgroundColor:"blue",
+        // backgroundColor:"blue",
         alignItems:'center',
         justifyContent:'center',
 
@@ -127,11 +126,12 @@ const styles=StyleSheet.create({
     tagView:{
         flexDirection:'row',
         alignContent:'center',
+        // backgroundColor:'pink',
     },
     BachTag:{
         height:Dimensions.get('window').height*0.05,
         width:Dimensions.get('window').width*0.3, 
-        backgroundColor:"#FF612F",
+        backgroundColor:"#8BD2ED",
         alignItems:'center',
         justifyContent:'center',
         borderRadius:20,
@@ -139,7 +139,7 @@ const styles=StyleSheet.create({
     statusTag:{
         height:Dimensions.get('window').height*0.05,
         width:Dimensions.get('window').width*0.3, 
-        backgroundColor:"#2680BE",
+        backgroundColor:"#8BD2ED",
         alignItems:'center',
         justifyContent:'center',
         borderRadius:20,
@@ -152,6 +152,7 @@ const styles=StyleSheet.create({
         justifyContent:'center',
         borderRadius:20,
         marginTop:5,
+        marginBottom:12,
     },
     contactName:{
         fontSize:20,
@@ -323,6 +324,28 @@ subTxt:{
    fontWeight:'bold',
    color:'#030303'
  },
+ loginBtnCon: {
+  height: '8%',
+  backgroundColor: '#FFFFFFaa',
+  // paddingTop: 10,
+  justifyContent: 'flex-start',
+  justifyContent: 'center',
+alignItems: 'center',
+},
+loginbtn:{
+  width: "40%",
+height: "85%",
+borderRadius: 8,
+backgroundColor: '#8BD2ED',
+justifyContent: 'center',
+alignItems: 'center',
+
+},
+btnTxt: {
+  fontSize: 22,
+  color: '#030303',
+  fontWeight:'bold',
+},
 
 
 })
