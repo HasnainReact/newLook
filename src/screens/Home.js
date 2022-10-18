@@ -5,17 +5,15 @@ import {
   TouchableOpacity,
   StatusBar,
   FlatList,
-  Image,
   Text,
   Modal,
-  TouchableWithoutFeedback,
+  Alert,
 } from 'react-native';
 import React, {useState} from 'react';
 import {styles} from '../components/CustomStyle';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Button from '../components/Button';
 
 const dummyData = [
   {
@@ -57,11 +55,20 @@ const dummyData = [
 ];
 
 const Home = ({navigation}) => {
+
+  // let title = title;
+  // let id = id;
+  // let course = course;
+  // let status = status;
+
   const [modalVisible, setModalVisible] = useState(false);
+//   const touch = () => {
+//     Alert.alert(title, ' Details of ' + id + ' is given below: \n\n' + course);
+// };
 
   const visitorsList = ({item}) => {
     return (
-      <TouchableOpacity onPress={() => setModalVisible(!modalVisible)}>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
         <View style={styles.TxtBox}>
           <View style={styles.nameView}>
             <Text style={styles.contactName}>{item.title}</Text>

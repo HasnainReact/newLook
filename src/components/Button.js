@@ -16,7 +16,7 @@ const Button = (props) => {
 export default Button
 const styles=StyleSheet.create({
     loginBtnCon: {
-        height: '8%',
+        height: '5%',
         backgroundColor: '#FFFFFFaa',
         // paddingTop: 10,
         justifyContent: 'flex-start',
@@ -27,7 +27,7 @@ const styles=StyleSheet.create({
         width: "40%",
     height: "85%",
     borderRadius: 8,
-    backgroundColor: '#8BD2ED',
+    backgroundColor: '#E8E8E8',
     justifyContent: 'center',
     alignItems: 'center',
 

@@ -21,7 +21,21 @@ import Button from '../components/Button';
 
 
 const AdmissionForm = () => {
-    
+
+  const [name, setName] = useState(null)
+    const [mobileNo, setMobileNo] = useState(null)
+    const [gender, setGender] = useState(null)
+    const [courseName, setCourseName] = useState(null)
+    const [batchNo, setBatchNo] = useState(null)
+    const [email, setEmail] = useState(null)
+    const [degree, setDegree] = useState(null)
+    const [shift, setShift] = useState(null)
+    const [cnic, setCnic] = useState(null)
+    const [dob, setDob] = useState(null)
+    const [fathName, setFathName] = useState(null)
+    const [fathMobile, setFathMobile] = useState(null)
+    const [riligion, setRiligion] = useState(null)
+
 
   const [imgy,setImgy] = useState('uri=https://www.kindpng.com/imgv/ToowwJJ_avatar-profile-hd-png-download/')
   const accessGallary=()=>{
@@ -45,7 +59,7 @@ const AdmissionForm = () => {
     'Digital Marketing',
     'Software Quality Assurance',
   ];
-  const batches = [
+  const batch = [
     'Batch# 1',
     'Batch# 2',
     'Batch# 3',
@@ -80,18 +94,19 @@ const AdmissionForm = () => {
 
 
   return (
-    <SafeAreaView style={{backgroundColor:'white'}}>
+    <SafeAreaView >
       <StatusBar backgroundColor="#8BD2ED" />
         
       {/* <KeyboardAvoidingView> */}
       <ScrollView >
-      <View style={styles.formHeader}>
+      {/* <View style={styles.formHeader}>
         <Image
           source={require('../Images/icrLogo.png')}
           style={styles.icrLogo}></Image>
         <SubHeading heading="Admission Form"/>
-      </View>
+      </View> */}
         <View style={styles.listView}>
+          <SubHeading heading="Admission Form"/>
           <View style={styles.formView}>
             <TouchableOpacity onPress={()=>accessGallary()}>
               <View style={styles.imgForm}>
@@ -104,17 +119,20 @@ const AdmissionForm = () => {
               <View>
                 <Text style={styles.contactName}>Course Details:</Text>
               </View>
-              <View style={styles.tagView}>
+              {/* <View style={styles.tagView}>
                 <View>
                   <Text style={styles.subTxt}>Course Name:</Text>
                 </View>
-              </View>
+              </View> */}
+              <View style={{marginTop:10}}>
               <SelectDropdown
-                buttonStyle={styles.dropButton}
+                buttonStyle={styles.courseButton}
                 defaultButtonText={'Select Course'}
+                buttonTextStyle={{ fontFamily: 'Inter-Regular', fontSize: 14, textAlign: "left",}}
+                rowTextStyle={{ fontSize: 14 }}
                 data={courses}
                 onSelect={(selectedItem, index) => {
-                  console.log(selectedItem, index);
+                    setCourseName(selectedItem)
                 }}
                 buttonTextAfterSelection={(selectedItem, index) => {
                   // text represented after item is selected
@@ -127,16 +145,18 @@ const AdmissionForm = () => {
                   return item;
                 }}
               />
+              </View>
             </View>
           </View>
           <View style={styles.shiftView}>
-            <Text style={styles.subTxt}>Batch# </Text>
             <SelectDropdown
-            buttonStyle={styles.bachButton}
-            defaultButtonText={'Batch #'}
-	data={batches}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
+           buttonStyle={styles.batchButton}
+           defaultButtonText={'Select Batch'}
+           buttonTextStyle={{ fontFamily: 'Inter-Regular', fontSize: 14, textAlign: "left" }}
+           rowTextStyle={{ fontSize: 14 }}
+           data={batch}
+           onSelect={(selectedItem, index) => {
+               setBatchNo(selectedItem)
 	}}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
@@ -148,14 +168,15 @@ const AdmissionForm = () => {
 		// if data array is an array of objects then return item.property to represent item in dropdown
 		return item
 	}}
-           />
-           <Text style={styles.subTxt}> Shift: </Text>
+           />           
            <SelectDropdown
-            buttonStyle={styles.bachButton}
-            defaultButtonText={'Shift'}
-	data={shifts}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
+            buttonStyle={styles.batchButton}
+            defaultButtonText={' Shift'}
+            buttonTextStyle={{ fontFamily: 'Inter-Regular', fontSize: 14, textAlign: "left" }}
+            rowTextStyle={{ fontSize: 14 }}
+            data={shifts}
+            onSelect={(selectedItem, index) => {
+                setShift(selectedItem)
 	}}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
@@ -170,23 +191,28 @@ const AdmissionForm = () => {
            />
 
           </View>
-          <View style={styles.pesonalView}>
+          <View style={styles.container}>
             <View>
               <SubHeading heading="Personal Details:"/>
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>Name(Mr./Ms.):</Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter Name' place keyboardType='name-phone-pad' textAlign='center'>
-            </TextInput>
+            <View>
+            <TextInput
+                         style={styles.input} placeholder='Name'
+                          place keyboardType='name-phone-pad' 
+                          placeholderTextColor="grey"
+                          value={name}
+                          onChangeText={(val) => setName(val)}
+                          />
             </View>
             <View style={styles.shiftView}>
-            <Text style={styles.subTxt}> Gender:</Text>
             <SelectDropdown
-            buttonStyle={styles.genderButton}
-            defaultButtonText={'Select'}
-	data={genders}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
+            buttonStyle={styles.batchButton}
+            defaultButtonText={' Gender'}
+            buttonTextStyle={{ fontFamily: 'Inter-Regular', fontSize: 14, textAlign: "left" }}
+            rowTextStyle={{ fontSize: 14 }}
+            data={genders}
+            onSelect={(selectedItem, index) => {
+                setGender(selectedItem)
 	}}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
@@ -199,13 +225,14 @@ const AdmissionForm = () => {
 		return item
 	}}
            /> 
-           <Text style={styles.subTxt}> Religion:</Text>
             <SelectDropdown
-            buttonStyle={styles.genderButton}
-            defaultButtonText={'Select'}
-	data={religion}
-	onSelect={(selectedItem, index) => {
-		console.log(selectedItem, index)
+            buttonStyle={styles.batchButton}
+            defaultButtonText={' Religion'}
+            buttonTextStyle={{ fontFamily: 'Inter-Regular', fontSize: 14, textAlign: "left" }}
+            rowTextStyle={{ fontSize: 14 }}
+            data={religion}
+            onSelect={(selectedItem, index) => {
+              setRiligion(selectedItem)
 	}}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		// text represented after item is selected
@@ -220,35 +247,59 @@ const AdmissionForm = () => {
            /> 
             </View>
            </View>
-           <View style={styles.inputView}>
-            <Text style={styles.subTxt}>Mobile No: </Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter Mobile No' place keyboardType='number-pad' textAlign='center'>
-            </TextInput>
+           <View >
+           <TextInput
+                         style={styles.input} placeholder='Mobile No'
+                          place keyboardType='number-pad' 
+                          placeholderTextColor="grey"
+                          value={mobileNo}
+                          onChangeText={(val) => setMobileNo(val)}
+                          />
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>CNIC # </Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter CNIC No' place keyboardType='number-pad' textAlign='center'>
-            </TextInput>
+            <View >
+            <TextInput
+                         style={styles.input} placeholder='CNIC No'
+                          place keyboardType='number-pad' 
+                          placeholderTextColor="grey"
+                          value={cnic}
+                          onChangeText={(val) => setCnic(val)}
+                          />
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>CNIC # </Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter CNIC No' place keyboardType='number-pad' textAlign='center'>
-            </TextInput>
+            <View>
+            <TextInput
+                         style={styles.input} placeholder='Date of Birth'
+                          place keyboardType='number-pad' 
+                          placeholderTextColor="grey"
+                          value={dob}
+                          onChangeText={(val) => setDob(val)}
+                          />
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>Email ID: </Text>
-            <TextInput style={styles.inputTxt} placeholder='example@email.com' place keyboardType='email-address' textAlign='center'>
-            </TextInput>
+            <View>
+            <TextInput
+                         style={styles.input} placeholder='Email ID'
+                          place keyboardType='email-address' 
+                          placeholderTextColor="grey"
+                          value={email}
+                          onChangeText={(val) => setEmail(val)}
+                          />
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>Father's Name:</Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter Name' place keyboardType='name-phone-pad' textAlign='center'>
-            </TextInput>
+            <View >
+            <TextInput
+                         style={styles.input} placeholder='Father Name'
+                          place keyboardType='name-phone-pad' 
+                          placeholderTextColor="grey"
+                          value={fathName}
+                          onChangeText={(val) => setFathName(val)}
+                          />
             </View>
-            <View style={styles.inputView}>
-            <Text style={styles.subTxt}>Father's Mobile:</Text>
-            <TextInput style={styles.inputTxt} placeholder='Enter Mobile No' place keyboardType='number-pad' textAlign='center'>
-            </TextInput>
+            <View >
+            <TextInput
+                         style={styles.input} placeholder='Father Mobile No'
+                          place keyboardType='number-pad' 
+                          placeholderTextColor="grey"
+                          value={fathMobile}
+                          onChangeText={(val) => setFathMobile(val)}
+                          />
             </View>
             <Button heading="Next-->"/>
         </View>

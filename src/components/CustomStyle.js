@@ -61,10 +61,8 @@ const styles=StyleSheet.create({
       margin:10,
     },
     listView:{
-        height:Dimensions.get('window').height*1,
-        width:"100%",
-        // flexDirection:'row',
-      //   backgroundColor:'pink',
+        // backgroundColor:'pink',
+        padding:15,
     },
     studentContainer: { 
         height:Dimensions.get('window').height*1,
@@ -211,13 +209,12 @@ const styles=StyleSheet.create({
     width:50,
  },
  formView:{
-    height:Dimensions.get('window').height*0.2,
-    width:Dimensions.get('window').width,
+    height:120,
+    // width:"100%",
     flexDirection: "row",
     // justifyContent:'',
-   //  backgroundColor:'grey',
+    // backgroundColor:'grey',
     // alignItems:'center',
-    marginTop:5
     
  },
  imgForm:{
@@ -295,13 +292,12 @@ const styles=StyleSheet.create({
     // marginRight:5,
   },
   shiftView:{
-    height:Dimensions.get('window').height*0.05,
-    width:Dimensions.get('window').width,
+    height:40,
+    width:"100%",
     // backgroundColor:'pink',
-    // marginTop:5,
-    justifyContent:'center',
-    alignItems:'center',
+    justifyContent:'space-evenly',
     flexDirection:'row',
+    marginBottom:10,
   },
  
  inputView:{
@@ -322,7 +318,7 @@ inputTxt:{
 subTxt:{
    fontSize:15,
    fontWeight:'bold',
-   color:'#030303'
+   color:'#030303',
  },
  loginBtnCon: {
   height: '8%',
@@ -345,6 +341,39 @@ btnTxt: {
   fontSize: 22,
   color: '#030303',
   fontWeight:'bold',
+},
+courseButton: {
+  backgroundColor: '#F6F6F6',
+  borderRadius: 8,
+  width: 190,
+  height: 44,
+  borderWidth: 1,
+  borderColor: '#E8E8E8',
+  marginBottom: 12,
+  marginRight:5,
+},
+batchButton: {
+  backgroundColor: '#F6F6F6',
+  borderRadius: 8,
+  width: 120,
+  height: 40,
+  borderWidth: 1,
+  borderColor: '#E8E8E8',
+  marginBottom: 12,
+  marginRight:5,
+},
+input: {
+  backgroundColor: "#F6F6F6",
+  fontFamily: 'Inter-Regular',
+  marginBottom: 12,
+  paddingHorizontal: 16,
+  paddingVertical: 10,
+  borderWidth: 1,
+  borderColor: "#E8E8E8",
+  borderRadius: 8,
+},
+container: {
+  // padding: 16,
 },
 
 
