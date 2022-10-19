@@ -7,6 +7,8 @@ import AdmissionForm from './src/screens/AdmissionForm';
 import InquiryForm from './src/screens/InquiryForm';
 import Button from './src/components/Button';
 import DatrePicker from './src/screens/DatePicker';
+import Education from './src/screens/Education';
+import OfficeUse from './src/screens/OfficeUse';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,13 +16,15 @@ const App = () => {
   
   return (
     <View>
-      <AdmissionForm/>
+      <OfficeUse/>
     </View>
 
     // <NavigationContainer>
     //       <Stack.Navigator>
-    //   <Stack.Screen options={{headerShown:false}} name="Home" component={Home}/>
-    //   <Stack.Screen options={{headerShown:false}} name="Inquiry Form" component={InquiryForm}/>
+    //   {/* <Stack.Screen options={{headerShown:false}} name="Home" component={Home}/>
+    //   <Stack.Screen options={{headerShown:false}} name="Inquiry Form" component={InquiryForm}/> */}
+    //   <Stack.Screen options={{headerShown:false}} name="Admission Form" component={AdmissionForm}/>
+    //   <Stack.Screen options={{headerShown:false}} name="Education Form" component={Education}/>
     //   </Stack.Navigator>
     // </NavigationContainer>
   )
