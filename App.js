@@ -9,6 +9,7 @@ import Button from './src/components/Button';
 import DatrePicker from './src/screens/DatePicker';
 import Education from './src/screens/Education';
 import OfficeUse from './src/screens/OfficeUse';
+import NewInput from './src/screens/NewInput';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ const App = () => {
   
   return (
     <View>
-      <OfficeUse/>
+      <AdmissionForm/>
     </View>
 
     // <NavigationContainer>

@@ -12,13 +12,14 @@ import {
   StyleSheet,
 } from 'react-native';
 import React, {useState} from 'react';
-import SelectDropdown from 'react-native-select-dropdown';
+import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {PERMISSIONS, request} from 'react-native-permissions';
 import SubHeading from '../components/SubHeading';
 import ImagePicker from 'react-native-image-crop-picker';
 import Button from '../components/Button';
 import PrimaryBtn from '../components/Button';
+import PageName from '../components/PageName';
 
 const AdmissionForm = ({navigation}) => {
   const [name, setName] = useState(null);
@@ -86,7 +87,7 @@ const AdmissionForm = ({navigation}) => {
         <SubHeading heading="Admission Form"/>
       </View> */}
         <View style={styles.listView}>
-          <SubHeading heading="Admission Form" />
+          <PageName name="Admission Form" />
           <View style={styles.formView}>
             {/* <TouchableOpacity onPress={()=>accessGallary()}>
               <View style={styles.imgForm}>
@@ -96,94 +97,74 @@ const AdmissionForm = ({navigation}) => {
               </View>
             </TouchableOpacity> */}
             <View style={styles.formTop}>
-              <View>
-                <Text style={styles.contactName}>Course Details:</Text>
+              <View style={{alignItems: 'flex-start'}}>
+                <SubHeading heading="Course Details" />
               </View>
               {/* <View style={styles.tagView}>
                 <View>
                   <Text style={styles.subTxt}>Course Name:</Text>
                 </View>
               </View> */}
-              <View style={{marginTop: 10}}>
-                <SelectDropdown
-                  buttonStyle={styles.courseButton}
-                  defaultButtonText={'Select Course'}
-                  buttonTextStyle={{
-                    fontFamily: 'Inter-Regular',
-                    fontSize: 14,
-                    textAlign: 'left',
-                  }}
-                  rowTextStyle={{fontSize: 14}}
-                  data={courses}
-                  onSelect={(selectedItem, index) => {
-                    setCourseName(selectedItem);
-                  }}
-                  buttonTextAfterSelection={(selectedItem, index) => {
-                    // text represented after item is selected
-                    // if data array is an array of objects then return selectedItem.property to render after item is selected
-                    return selectedItem;
-                  }}
-                  rowTextForSelection={(item, index) => {
-                    // text represented for each item in dropdown
-                    // if data array is an array of objects then return item.property to represent item in dropdown
-                    return item;
-                  }}
-                />
+              <View style={{marginTop:5,}}>
+                <Picker
+                style={styles.courseButton}
+                  selectedValue={courseName}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setCourseName(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Select Course" value="sc" />
+                  <Picker.Item label="Web Development" value="wd" />
+                  <Picker.Item label="App Developement" value="ad" />
+                  <Picker.Item label="Digital Marketing" value="dm" />
+                  <Picker.Item label="Software Quality Assurance" value="sq" />
+                  <Picker.Item label="Graphic Designing" value="gd" />
+                  <Picker.Item label="SEO" value="seo" />
+                  <Picker.Item label="WordPress Development" value="wp" />
+                </Picker>
               </View>
             </View>
           </View>
           <View style={styles.shiftView}>
-            <SelectDropdown
-              buttonStyle={styles.batchButton}
-              defaultButtonText={'Select Batch'}
-              buttonTextStyle={{
-                fontFamily: 'Inter-Regular',
-                fontSize: 14,
-                textAlign: 'left',
-              }}
-              rowTextStyle={{fontSize: 14}}
-              data={batch}
-              onSelect={(selectedItem, index) => {
-                setBatchNo(selectedItem);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                // text represented after item is selected
-                // if data array is an array of objects then return selectedItem.property to render after item is selected
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                // text represented for each item in dropdown
-                // if data array is an array of objects then return item.property to represent item in dropdown
-                return item;
-              }}
-            />
-            <SelectDropdown
-              buttonStyle={styles.batchButton}
-              defaultButtonText={' Shift'}
-              buttonTextStyle={{
-                fontFamily: 'Inter-Regular',
-                fontSize: 14,
-                textAlign: 'left',
-              }}
-              rowTextStyle={{fontSize: 14}}
-              data={shifts}
-              onSelect={(selectedItem, index) => {
-                setShift(selectedItem);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                // text represented after item is selected
-                // if data array is an array of objects then return selectedItem.property to render after item is selected
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                // text represented for each item in dropdown
-                // if data array is an array of objects then return item.property to represent item in dropdown
-                return item;
-              }}
-            />
+          <Picker
+                style={styles.batchButton}
+                  selectedValue={batchNo}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setBatchNo(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Batch No" value="bn" />
+                  <Picker.Item label="Batch# 1" value="b1" />
+                  <Picker.Item label="Batch# 2" value="b2" />
+                  <Picker.Item label="Batch# 3" value="b3" />
+                  <Picker.Item label="Batch# 4" value="b4" />
+                  <Picker.Item label="Batch# 5" value="b5" />
+                  <Picker.Item label="Batch# 6" value="b6" />
+                  <Picker.Item label="Batch# 7" value="b7" />
+                  <Picker.Item label="Batch# 8" value="b8" />
+                  <Picker.Item label="Batch# 9" value="b9" />
+                  <Picker.Item label="Batch# 10" value="b10" />
+                  <Picker.Item label="Batch# 11" value="b11" />
+                  <Picker.Item label="Batch# 12" value="b12" />
+                  <Picker.Item label="Batch# 13" value="b13" />
+
+                </Picker>
+                <Picker
+                style={styles.batchButton}
+                  selectedValue={shift}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setShift(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Shift" value="shf" />
+                  <Picker.Item label="Morning" value="mrn" />
+                  <Picker.Item label="Afternoon" value="aft" />
+                  <Picker.Item label="Evening" value="eve" />
+                  
+                </Picker>
           </View>
           <View style={styles.container}>
-            <View style={{alignItems: 'flex-start'}}>
+            <View style={{alignItems: 'flex-start', paddingBottom: 5}}>
               <SubHeading heading="Personal Details:" />
             </View>
             <View>
@@ -198,54 +179,32 @@ const AdmissionForm = ({navigation}) => {
               />
             </View>
             <View style={styles.shiftView}>
-              <SelectDropdown
-                buttonStyle={styles.batchButton}
-                defaultButtonText={' Gender'}
-                buttonTextStyle={{
-                  fontFamily: 'Inter-Regular',
-                  fontSize: 14,
-                  textAlign: 'left',
-                }}
-                rowTextStyle={{fontSize: 14}}
-                data={genders}
-                onSelect={(selectedItem, index) => {
-                  setGender(selectedItem);
-                }}
-                buttonTextAfterSelection={(selectedItem, index) => {
-                  // text represented after item is selected
-                  // if data array is an array of objects then return selectedItem.property to render after item is selected
-                  return selectedItem;
-                }}
-                rowTextForSelection={(item, index) => {
-                  // text represented for each item in dropdown
-                  // if data array is an array of objects then return item.property to represent item in dropdown
-                  return item;
-                }}
-              />
-              <SelectDropdown
-                buttonStyle={styles.batchButton}
-                defaultButtonText={' Religion'}
-                buttonTextStyle={{
-                  fontFamily: 'Inter-Regular',
-                  fontSize: 14,
-                  textAlign: 'left',
-                }}
-                rowTextStyle={{fontSize: 14}}
-                data={religion}
-                onSelect={(selectedItem, index) => {
-                  setRiligion(selectedItem);
-                }}
-                buttonTextAfterSelection={(selectedItem, index) => {
-                  // text represented after item is selected
-                  // if data array is an array of objects then return selectedItem.property to render after item is selected
-                  return selectedItem;
-                }}
-                rowTextForSelection={(item, index) => {
-                  // text represented for each item in dropdown
-                  // if data array is an array of objects then return item.property to represent item in dropdown
-                  return item;
-                }}
-              />
+            <Picker
+                style={styles.batchButton}
+                  selectedValue={gender}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setGender(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Gender" value="gdr" />
+                  <Picker.Item label="Male" value="ml" />
+                  <Picker.Item label="Female" value="fm" />
+                  
+                </Picker>
+                <Picker
+                style={styles.batchButton}
+                  selectedValue={riligion}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setRiligion(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Religion" value="rlg" />
+                  <Picker.Item label="Muslim" value="msl" />
+                  <Picker.Item label="Christian" value="crs" />
+                  <Picker.Item label="Hindu" value="hnd" />
+                  <Picker.Item label="Sikh" value="skh" />
+                  <Picker.Item label="Others" value="otr" />
+                </Picker>
             </View>
           </View>
           <View>
@@ -347,7 +306,7 @@ const styles = StyleSheet.create({
     width: 50,
   },
   formView: {
-    height: 120,
+    height: 100,
     // width:"100%",
     flexDirection: 'row',
     // justifyContent:'',
@@ -364,7 +323,7 @@ const styles = StyleSheet.create({
     // marginLeft:10,
   },
   formTop: {
-    height: Dimensions.get('window').height * 0.2,
+    height: Dimensions.get('window').height * 0.13,
     width: Dimensions.get('window').width * 0.8,
     // backgroundColor:'pink',
     marginTop: 5,
@@ -388,13 +347,11 @@ const styles = StyleSheet.create({
   },
   courseButton: {
     backgroundColor: '#F6F6F6',
-    borderRadius: 8,
-    width: 190,
+    width: "100%",
     height: 44,
     borderWidth: 1,
     borderColor: '#E8E8E8',
-    marginBottom: 12,
-    marginRight: 5,
+   
   },
   shiftView: {
     height: 40,
@@ -402,12 +359,12 @@ const styles = StyleSheet.create({
     // backgroundColor:'pink',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: 10,
+    marginBottom: 25,
   },
   batchButton: {
     backgroundColor: '#F6F6F6',
     borderRadius: 8,
-    width: 120,
+    width: 160,
     height: 45,
     borderWidth: 1,
     borderColor: '#E8E8E8',

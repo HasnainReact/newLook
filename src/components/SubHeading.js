@@ -4,7 +4,7 @@ import React from 'react'
 export default function SubHeading(props) {
   return (
     <View>
-        <View style={{paddingVertical: 5, justifyContent:'center',alignItems:'center'}}>
+        <View>
       <Text style={styles.contactName}>{props.heading}</Text>
       </View>
     </View>

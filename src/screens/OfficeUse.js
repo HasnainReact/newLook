@@ -9,6 +9,8 @@ import React, {useState} from 'react';
 import SubHeading from '../components/SubHeading';
 import PageName from '../components/PageName';
 import Button from '../components/Button';
+import {Picker} from '@react-native-picker/picker';
+
 
 const OfficeUse = () => {
   const [registration, setRegistration] = useState(null);
@@ -18,6 +20,13 @@ const OfficeUse = () => {
   const [firstInsta, setFirstInsta] = useState(null);
   const [secInsta, setSecInsta] = useState(null);
   const [thirInsta, setThirInsta] = useState(null);
+  const reference = [
+    'Friend',
+    'Family',
+    'Social Media',
+    'Website',
+    'Ads',
+  ];
 
   return (
     <ScrollView>
@@ -57,14 +66,20 @@ const OfficeUse = () => {
           />
         </View>
         <View>
-          <TextInput
-            style={styles.input}
-            placeholder="Reffeence By"
-            keyboardType="name-phone-pad"
-            placeholderTextColor="grey"
-            value={refference}
-            onChangeText={val => setRefference(val)}
-          />
+        <Picker
+                style={styles.refButton}
+                  selectedValue={refference}
+                  onValueChange={(itemValue, itemIndex) =>
+                    setRefference(itemValue)
+                    
+                  }>
+                  <Picker.Item label="Refference" value="rfc" />
+                  <Picker.Item label="Friend" value="frn" />
+                  <Picker.Item label="Family" value="fml" />
+                  <Picker.Item label="Social Media" value="sm" />
+                  <Picker.Item label="Print Media" value="pm" />
+                  <Picker.Item label="Ads" value="ad" />
+                </Picker>
         </View>
         <View style={{alignItems: 'flex-start'}}>
           <SubHeading heading="Installment Plan" />
@@ -119,5 +134,25 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E8E8E8',
     borderRadius: 8,
+  },
+  batchButton: {
+    backgroundColor: '#F6F6F6',
+    borderRadius: 8,
+    width: 120,
+    height: 45,
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+    marginBottom: 12,
+    marginRight: 5,
+  },
+  refButton: {
+    backgroundColor: '#F6F6F6',
+    borderRadius: 8,
+    width: 180,
+    height: 45,
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+    marginBottom: 12,
+    marginRight: 5,
   },
 });
