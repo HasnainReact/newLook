@@ -104,7 +104,7 @@ const styles=StyleSheet.create({
         
      },
      TxtBox:{
-        height:Dimensions.get('window').height*.18,
+        height:Dimensions.get('window').height*.15,
         width:Dimensions.get('window').width, 
         // backgroundColor:"pink",
         justifyContent:'center',
@@ -114,25 +114,30 @@ const styles=StyleSheet.create({
         
     },
     nameView:{
-        height:Dimensions.get('window').height*0.06,
-        width:Dimensions.get('window').width*.7, 
+        height:Dimensions.get('window').height*0.07,
+        width:Dimensions.get('window').width, 
         // backgroundColor:"blue",
-        alignItems:'center',
+        alignItems:'flex-start',
         justifyContent:'center',
-
+        paddingLeft:16,
     },
     tagView:{
         flexDirection:'row',
-        alignContent:'center',
         // backgroundColor:'pink',
+        width:"100%",
+        justifyContent:'space-around',
+        alignItems:'center'
+
     },
     BachTag:{
-        height:Dimensions.get('window').height*0.05,
+        height:Dimensions.get('window').height*0.043,
         width:Dimensions.get('window').width*0.3, 
-        backgroundColor:"#8BD2ED",
+        backgroundColor:"#11afe5",
         alignItems:'center',
         justifyContent:'center',
         borderRadius:20,
+        // borderColor:'#2680BE',
+        // borderWidth:1
     },
     statusTag:{
         height:Dimensions.get('window').height*0.05,
@@ -143,14 +148,14 @@ const styles=StyleSheet.create({
         borderRadius:20,
     },
     courseTag:{
-        height:Dimensions.get('window').height*0.05,
+        height:Dimensions.get('window').height*0.043,
         width:Dimensions.get('window').width*0.6, 
-        backgroundColor:"#13C4A1",
+        backgroundColor:"#11afe5",
         alignItems:'center',
         justifyContent:'center',
         borderRadius:20,
-        marginTop:5,
-        marginBottom:12,
+        // borderWidth:1,
+        // borderColor:'#2680BE',
     },
     contactName:{
         fontSize:20,
@@ -171,10 +176,8 @@ const styles=StyleSheet.create({
       },
       batch:{
         fontSize:17,
-        color:'black',
-        marginLeft:5,
-        marginTop:5,
-      //   fontWeight:'bold',
+        color:'white',
+        alignSelf:'center',
 
       },
       statusTxt:{
@@ -183,7 +186,7 @@ const styles=StyleSheet.create({
       },
       courseTxt:{
         fontSize:17,
-        color:'black',
+        color:'white',
       },
     
    /////////////////  Admission Form//////////

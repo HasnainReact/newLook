@@ -17,13 +17,13 @@ const App = () => {
   
   return (
     <View>
-      <AdmissionForm/>
+      <Home/>
     </View>
 
     // <NavigationContainer>
     //       <Stack.Navigator>
-    //   {/* <Stack.Screen options={{headerShown:false}} name="Home" component={Home}/>
-    //   <Stack.Screen options={{headerShown:false}} name="Inquiry Form" component={InquiryForm}/> */}
+    //   <Stack.Screen options={{headerShown:false}} name="Home" component={Home}/>
+    //   <Stack.Screen options={{headerShown:false}} name="Inquiry Form" component={InquiryForm}/>
     //   <Stack.Screen options={{headerShown:false}} name="Admission Form" component={AdmissionForm}/>
     //   <Stack.Screen options={{headerShown:false}} name="Education Form" component={Education}/>
     //   </Stack.Navigator>

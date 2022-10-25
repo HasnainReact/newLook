@@ -77,14 +77,12 @@ const Home = ({navigation}) => {
             <View style={styles.BachTag}>
               <Text style={styles.batch}>{item.id}</Text>
             </View>
-
-            <View style={styles.statusTag}>
-              <Text style={styles.statusTxt}>{item.status}</Text>
-            </View>
-          </View>
-          <View style={styles.courseTag}>
+            <View style={styles.courseTag}>
             <Text style={styles.courseTxt}>{item.course}</Text>
           </View>
+            
+          </View>
+          
 
           {/* <View style={{ marginVertical: 10, paddingVertical: 10, backgroundColor: "#E8E8E8", borderRadius: 10, paddingHorizontal: 16 }}>
                     <Text style={{ fontFamily: "Inter-Regular", fontWeight: "600" }}>{item.title}</Text>

@@ -13,12 +13,8 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {Picker} from '@react-native-picker/picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
-import {PERMISSIONS, request} from 'react-native-permissions';
 import SubHeading from '../components/SubHeading';
-import ImagePicker from 'react-native-image-crop-picker';
 import Button from '../components/Button';
-import PrimaryBtn from '../components/Button';
 import PageName from '../components/PageName';
 
 const AdmissionForm = ({navigation}) => {
